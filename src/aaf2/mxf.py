@@ -199,6 +199,12 @@ class MXFObject(object):
                     self.data['BlackReferenceLevel'] = read_s32be(f)
                 elif uid == AUID("060e2b34-0101-0102-0401-050305000000"):
                     self.data['ColorRange'] = read_s32be(f)
+                elif uid == AUID("060e2b34-0101-0109-0401-020101060100"):
+                    self.data['ColorPrimaries'] = read_s32be(f)
+                elif uid == AUID("060e2b34-0101-0102-0401-020101030100"):
+                    self.data['CodingEquations'] = read_s32be(f)
+                elif uid == AUID("060e2b34-0101-0102-0401-020101010200"):
+                    self.data['TransferCharacteristic'] = read_s32be(f)
 
     def resolve_ref(self, key):
         ref = self.data.get(key, None)
